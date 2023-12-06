@@ -179,7 +179,7 @@ int main() {
 		case 10:
 			system("color FC");
 			cout << "you're in the 10th room, (s)outh or go (e)ast  " << endl;
-			cout << "theres norhing in this room but a sleeping cat so just leave n let it sleep " << endl;
+			cout << "theres norhing in this room but a bat " << endl;
 			cout << "       (_    ,_,    _) " << endl;
 			cout << "       / `'--) (--'` \\" << endl;
 			cout << "      /  _,-'\\_/'-,_  \\" << endl;
@@ -192,7 +192,33 @@ int main() {
 			break;
 		case 11:
 			system("color FC");
-			cout << "you're in the 11th room, (w)est to go back or go (e)ast to the next room " << endl;
+			cout << "a room filled with a lot of skeletons as if there was an army of them was scattered around the room." << endl;
+			cout << "you're in the 11th room, (w)est or (e)ast" << endl;
+			cout << "                           ,--." << endl;
+			cout << "                          {    }" << endl;
+			cout << "                          K,   }" << endl;
+			cout << "                         /  `Y`" << endl;
+			cout << "                    _   /   /" << endl;
+			cout << "                   {_'-K.__/" << endl;
+			cout << "                     `/-.__L._" << endl;
+			cout << "                     /  ' /`\\_}" << endl;
+			cout << "                    /  ' /   " << endl;
+			cout << "            ____   /  ' /" << endl;
+			cout << "     ,-'~~~~    ~~/  ' /_" << endl;
+			cout << "   ,'             ``~~~%%'," << endl;
+			cout << "  (                     %  Y" << endl;
+			cout << " {                      %% I" << endl;
+			cout << "{      -                 %  `." << endl;
+			cout << "|       ',                %  )" << endl;
+			cout << "|        |   ,..__      __. Y" << endl;
+			cout << "|    .,_./  Y ' / ^Y   J   )|" << endl;
+			cout << "\\           |' /   |   |   ||" << endl;
+			cout << " \\          L_/    . _ (_,.'(" << endl;
+			cout << "  \\,   ,      ^^""' / |      )" << endl;
+			cout << "    \\_  \\          /,L]     /" << endl;
+			cout << "      '-_`-,       ` `   ./`" << endl;
+			cout << "         `-(_            )" << endl;
+			cout << "             ^^\\..___,.--`" << endl;
 			cin >> input;
 			if (input == 'w')
 				room = 10;
@@ -208,8 +234,11 @@ int main() {
 			cout << "ZZZzz /,`.-'`'     -. ;-;;,_" << endl;
 			cout << "     |,4-  ) )-,_. ,\\ (  `'-'" << endl;
 			cout << "    '---''(_/--'  `-'\\_)  " << endl;
+			cin >> input;
 			if (input == 'p')
-				
+				cout << "you have won" << endl;
+
+			
 			break;
 
 		} //end of game switch
@@ -226,16 +255,23 @@ void BattleSystem() {
 	int PlayerDmg = 15;
 	//mosters health
 	if (MonsterType == 1) {
-		MonsterHealth = 30;
+		MonsterHealth = 75;
 	}
 	if (MonsterType == 2) {
-		MonsterHealth = 50;
+		MonsterHealth = 60;
 	}//moster dmg
+	if (MonsterType == 3) {
+		MonsterHealth = 25;
+	}
+
 	if (MonsterType == 1) {
 		MonsterDmg = rand() % 20+1;
 	}
 	if (MonsterType == 2) {
-		MonsterDmg = rand() %6 + 5;
+		MonsterDmg = rand() %9 + 5;
+	}
+	if (MonsterType == 3) {
+		MonsterDmg = rand() % 11 + 3;
 	}
 
 
@@ -265,8 +301,8 @@ void BattleSystem() {
 }//end of loop
 int MonsterGen() {
 	int num = rand() % 100;
-	
-	if (num < 50) {
+	if (num < 25) {
+		cout << "a gryphon spawned!" << endl;
 		cout << "   ____       ____" << endl;
 		cout << "  /    )     (    \\" << endl;
 		cout << " /    (  ^_^  )    \\" << endl;
@@ -275,8 +311,10 @@ int MonsterGen() {
 		cout << "|_)(   /\\   /\\   )(_|" << endl;
 		cout << "|)  (_ | \\|/  |_)  (|" << endl;
 		cout << "'     ""--^^^^--""      '" << endl;
+		return 1;
 	}
-	else {
+	else if (num < 25) {
+		cout << "a baby alien spawned!" << endl;
 		cout << "          (" << endl;
 		cout << "       __..)__" << endl;
 		cout << "     .'       `'." << endl;
@@ -287,8 +325,15 @@ int MonsterGen() {
 		cout << "    \\--'          /" << endl;
 		cout << "     \\__.-' __..''" << endl;
 		cout << "       /     |" << endl;
-
 	return 2;
+	}
+	else if (num < 50) {
+		cout << "a little ghost spawned" << endl;
+		cout << " .-." << endl;
+		cout << "(o o) boo!" << endl;
+		cout << "| O \\" << endl;
+		cout << " \\   \\" << endl;
+		cout << "  `~~~'" << endl;
 	}
 }//end of loop
 void itemDropper() {
